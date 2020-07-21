@@ -91,7 +91,7 @@ const scrollToSection = () => {
 
   links.forEach((link) => {
     link.addEventListener('click', function (e) {
-      // e.preventDefault();
+      e.preventDefault();
 
       document.querySelector(this.getAttribute('href')).scrollIntoView({
         behavior: 'smooth',
@@ -101,6 +101,22 @@ const scrollToSection = () => {
 };
 
 scrollToSection();
+
+//active state to  navigation items
+
+const linksActivate = () => {
+  const navLinks = document.querySelectorAll('.menu__link');
+
+  navLinks.forEach((navlink) => {
+    navlink.addEventListener('click', function () {
+      navLinks.forEach((link) => link.classList.remove('menu__link--active'));
+
+      this.classList.add('menu__link--active');
+    });
+  });
+};
+
+linksActivate();
 /**
  * End Main Functions
  * Begin Events
