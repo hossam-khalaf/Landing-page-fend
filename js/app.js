@@ -67,7 +67,7 @@ const addActiveClass = (condition, section) => {
     section.classList.add('your-active-class');
   }
 };
-//implementating the actual function
+//implementating the main (active class) function
 
 const activateTargetSection = () => {
   sections.forEach((section) => {

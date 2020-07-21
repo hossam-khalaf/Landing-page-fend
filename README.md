@@ -17,3 +17,5 @@
 ### how to use the project
 
     After cloning just open the index.html by double click to your browser of yours.
+
+### Live version using gh-pages https://hossam-khalaf.github.io/Landing-page-fend
