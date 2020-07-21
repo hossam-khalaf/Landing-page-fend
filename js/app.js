@@ -60,11 +60,14 @@ const offset = (section) => {
 //removing active class
 const removeActiveClass = (section) => {
   section.classList.remove('your-active-class');
+  section.style.cssText =
+    'background-color: linear-gradient(0deg,rgba(255, 255, 255, 0.1) 0%,rgba(255, 255, 255, 0.2) 100%';
 };
 // adding the active class
 const addActiveClass = (condition, section) => {
   if (condition) {
     section.classList.add('your-active-class');
+    section.style.cssText = 'background-color: #f5745e;';
   }
 };
 //implementating the main (active class) function
@@ -83,18 +86,21 @@ const activateTargetSection = () => {
 window.addEventListener('scroll', activateTargetSection);
 
 // Scroll to anchor ID using scrollTO event
-const scrollToAnchorID = () => {
-  const links = document.querySelectorAll('.navbar__menu a');
+const scrollToSection = () => {
+  const links = document.querySelectorAll('.menu__link');
+
   links.forEach((link) => {
-    link.addEventListener('click', () => {
-      for (let i = 0; i < sections; i++) {
-        sections[i].addEventListener('click', scrollTo(link));
-      }
+    link.addEventListener('click', function (e) {
+      // e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth',
+      });
     });
   });
 };
 
-scrollToAnchorID();
+scrollToSection();
 /**
  * End Main Functions
  * Begin Events
