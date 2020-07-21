@@ -13,17 +13,16 @@
  *
  */
 
-console.log('Heeeeeeeeey');
-
 /**
  * Define Global Variables
- *
  */
+
+const nav = document.querySelector('#navbar__list');
+const sections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
  * Start Helper Functions
- *
  */
 
 /**
@@ -34,7 +33,54 @@ console.log('Heeeeeeeeey');
 
 // build the nav
 
+const navGenerator = () => {
+  let navContainer = '';
+
+  //getting each section id and data value then implent them into nav link
+  sections.forEach((section) => {
+    const sectionId = section.id;
+    const sectionNavData = section.dataset.nav;
+
+    navContainer += `<li><a class="menu__link" href="#${sectionId}">${sectionNavData}</a></li>`;
+  });
+
+  // Add nav items to the nav element
+  nav.innerHTML = navContainer;
+};
+
+navGenerator();
+
 // Add class 'active' to section when near top of viewport
+
+// get the offset value of the section
+const offset = (section) => {
+  return Math.floor(section.getBoundingClientRect().top);
+};
+
+//removing active class
+const removeActiveClass = (section) => {
+  section.classList.remove('your-active-class');
+};
+// adding the active class
+const addActiveClass = (condition, section) => {
+  if (condition) {
+    section.classList.add('your-active-class');
+  }
+};
+//implementating the actual function
+
+const activateTargetSection = () => {
+  sections.forEach((section) => {
+    const elementTopOffset = offset(section);
+
+    inViewport = () => elementTopOffset < 150 && elementTopOffset >= -150;
+
+    removeActiveClass(section);
+    addActiveClass(inViewport(), section);
+  });
+};
+
+window.addEventListener('scroll', activateTargetSection);
 
 // Scroll to anchor ID using scrollTO event
 
