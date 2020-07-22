@@ -18,6 +18,7 @@
  */
 const navbarList = document.querySelector('#navbar__list');
 const mainSections = document.querySelectorAll('section');
+
 /**
  * End Global Variables
  * Start Helper Functions
@@ -56,21 +57,6 @@ const navigationMenu = () => {
 
 navigationMenu();
 
-//active state to  navigation items
-
-const activeLink = () => {
-  const navLinks = document.querySelectorAll('.menu__link');
-
-  navLinks.forEach((navlink) => {
-    navlink.addEventListener('click', function () {
-      navLinks.forEach((link) => link.classList.remove('menu__link--active'));
-      this.classList.add('menu__link--active');
-    });
-  });
-};
-
-activeLink();
-
 // Set sections as active
 // setting IntersectionObserver object / observing viewport
 let options = {
@@ -90,7 +76,6 @@ mainSections.forEach((mainSection) => {
 function hittingSection(sections, observer) {
   sections.forEach((section) => {
     if (section.isIntersecting) {
-      console.log('Intersecting', section.target.id);
       section.target.classList.add('your-active-class');
     } else {
       section.target.classList.remove('your-active-class');
@@ -98,4 +83,24 @@ function hittingSection(sections, observer) {
   });
 }
 
-// Scroll to section on link click
+// Scroll to section on link click by targeting hash value which is same with section ID
+
+const scrollToTargetSection = () => {
+  const navLinks = document.querySelectorAll('.menu__link');
+
+  navLinks.forEach((navLink) => {
+    navLink.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      let hashValue = navLink.getAttribute('href');
+      let target = document.querySelector(hashValue);
+
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    });
+  });
+};
+
+scrollToTargetSection();
