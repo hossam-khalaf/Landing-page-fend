@@ -54,6 +54,11 @@ main {
   margin: 10vh 1em 10vh;
 }
 
+main,
+section {
+  padding-top: 3rem;
+}
+
 .main-hero {
   min-height: 40vh;
   padding-top: 3em;
