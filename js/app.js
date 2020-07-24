@@ -45,7 +45,7 @@ const activateSectionOnScroll = () => {
   const mainSections = document.querySelectorAll('section');
   let options = {
     root: null,
-    rootMargin: '5px 0px -150px 0px',
+    rootMargin: '5px 0px -130px 0px',
     threshold: 0.5,
   };
 
