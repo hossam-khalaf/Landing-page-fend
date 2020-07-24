@@ -45,8 +45,8 @@ const activateSectionOnScroll = () => {
   const mainSections = document.querySelectorAll('section');
   let options = {
     root: null,
-    rootMargin: '15px 0px -150px 0px',
-    threshold: 0.25,
+    rootMargin: '5px 0px -150px 0px',
+    threshold: 0.5,
   };
 
   let observer = new IntersectionObserver(hittingSection, options);
