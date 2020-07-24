@@ -5,17 +5,27 @@
 ## Languages Used
 
 ##### HTML
+
 ##### CSS
+
 ##### JavaScript
 
 ## Functionality
 
-#### Navbar
-#### Dynamic active
-#### Scrolling Effect
+#### Dynamic Navbar
 
-### how to use the project
+#### Activate section on scrolling into view
 
-    After cloning just open the index.html by double click to the browser of yours.
+#### Scrolling to target on navigation click
+
+#### resources
+
+###### https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
+
+###### https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+
+###### https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+
+###### https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
 
 ### Live version using gh-pages https://hossam-khalaf.github.io/Landing-page-fend
