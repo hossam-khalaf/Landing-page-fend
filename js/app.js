@@ -46,7 +46,7 @@ const activateSectionOnScroll = () => {
   let options = {
     root: null,
     rootMargin: '15px 0px -150px 0px',
-    threshold: 0.5,
+    threshold: 0.25,
   };
 
   let observer = new IntersectionObserver(hittingSection, options);
@@ -85,7 +85,7 @@ const scrollToTargetSection = () => {
 
       target.scrollIntoView({
         behavior: 'smooth',
-        block: 'center',
+        block: 'start',
       });
     });
   });
