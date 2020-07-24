@@ -13,28 +13,9 @@
  *
  */
 
-/**
- * Define Global Variables
- */
-
-/**
- * End Global Variables
- * Start Helper Functions
- */
-
-/**
- * End Helper Functions
- * Begin Main Functions
- *
- */
-
-/**
- * End Main Functions
- * Begin Events
- *
- */
-
 // Build menu
+//https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 // Dynamic Navbar (Navigation Menu)
 
 const navigationMenu = () => {
@@ -58,6 +39,7 @@ const navigationMenu = () => {
 navigationMenu();
 
 // Set sections as active
+// https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
 // setting IntersectionObserver object / observing viewport
 const activateSectionOnScroll = () => {
   const mainSections = document.querySelectorAll('section');
@@ -88,6 +70,7 @@ const activateSectionOnScroll = () => {
 
 activateSectionOnScroll();
 
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
 // Scroll to section on link click by targeting hash value which is same with section ID
 
 const scrollToTargetSection = () => {
