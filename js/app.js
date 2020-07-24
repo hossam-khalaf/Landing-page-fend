@@ -16,8 +16,6 @@
 /**
  * Define Global Variables
  */
-const navbarList = document.querySelector('#navbar__list');
-const mainSections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
@@ -40,6 +38,8 @@ const mainSections = document.querySelectorAll('section');
 // Dynamic Navbar (Navigation Menu)
 
 const navigationMenu = () => {
+  const navbarList = document.querySelector('#navbar__list');
+  const mainSections = document.querySelectorAll('section');
   const navbarItemsFrag = document.createDocumentFragment();
 
   mainSections.forEach((mainSection) => {
@@ -59,29 +59,34 @@ navigationMenu();
 
 // Set sections as active
 // setting IntersectionObserver object / observing viewport
-let options = {
-  root: null,
-  rootMargin: '15px 0px -150px 0px',
-  threshold: 0.5,
+const activateSectionOnScroll = () => {
+  const mainSections = document.querySelectorAll('section');
+  let options = {
+    root: null,
+    rootMargin: '15px 0px -150px 0px',
+    threshold: 0.5,
+  };
+
+  let observer = new IntersectionObserver(hittingSection, options);
+
+  //observe by looping over sections
+  mainSections.forEach((mainSection) => {
+    observer.observe(mainSection);
+  });
+
+  //callback functionality
+  function hittingSection(sections, observer) {
+    sections.forEach((section) => {
+      if (section.isIntersecting) {
+        section.target.classList.add('your-active-class');
+      } else {
+        section.target.classList.remove('your-active-class');
+      }
+    });
+  }
 };
 
-let observer = new IntersectionObserver(hittingSection, options);
-
-//observe by looping over sections
-mainSections.forEach((mainSection) => {
-  observer.observe(mainSection);
-});
-
-//callback functionality
-function hittingSection(sections, observer) {
-  sections.forEach((section) => {
-    if (section.isIntersecting) {
-      section.target.classList.add('your-active-class');
-    } else {
-      section.target.classList.remove('your-active-class');
-    }
-  });
-}
+activateSectionOnScroll();
 
 // Scroll to section on link click by targeting hash value which is same with section ID
 
