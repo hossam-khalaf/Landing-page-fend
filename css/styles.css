@@ -34,12 +34,16 @@ h1 {
     font-size: 7em;
     margin: 2em 4rem 1em;
   }
+
+  h2 {
+    font-size: 3em;
+  }
 }
 
 h2 {
   border-bottom: 1px solid #cc1;
   font-family: 'Oxygen', Sans-Serif;
-  font-size: 3em;
+  font-size: 2em;
   color: #fff;
 }
 
