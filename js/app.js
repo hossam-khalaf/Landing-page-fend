@@ -45,8 +45,8 @@ const activateSectionOnScroll = () => {
   const mainSections = document.querySelectorAll('section');
   let options = {
     root: null,
-    rootMargin: '-230px -50px',
-    threshold: 0.09,
+    rootMargin: '-250px -50px',
+    threshold: 0.1,
   };
 
   let observer = new IntersectionObserver(hittingSection, options);
@@ -59,10 +59,17 @@ const activateSectionOnScroll = () => {
   //callback functionality
   function hittingSection(sections, observer) {
     sections.forEach((section) => {
+      // getting the nav link
+      let id = section.target.id;
+      navLink = document.querySelector(`[href="#${id}"]`);
+
+      // what happens if section is intersecting or not
       if (section.isIntersecting) {
         section.target.classList.add('your-active-class');
+        navLink.classList.add('nav__link--active');
       } else {
         section.target.classList.remove('your-active-class');
+        navLink.classList.remove('nav__link--active');
       }
     });
   }

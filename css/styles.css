@@ -96,12 +96,18 @@ section {
   font-size: 0.9rem;
   text-decoration: none;
   color: #000;
+  transition: all 0.4s ease-out;
 }
 
 .navbar__menu .menu__link:hover {
   background: #333;
   color: #fff;
   transition: ease 0.3s all;
+}
+
+.navbar__menu .nav__link--active {
+  color: tomato;
+  border-bottom: tomato 2px solid;
 }
 
 /* Header Styles */
